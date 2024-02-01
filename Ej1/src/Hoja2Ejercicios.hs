@@ -8,6 +8,11 @@ module Hoja2Ejercicios
 
 componer :: Int -> Int -> Int
 componer x y = max (x `div` y) (x `mod` y)
+--componer x = max (x `div` ) . mod x No se puede hacer por composicion de funciones ya que necesito ambos valores en dos funciones diferentes que se utilizan para el max por lo que si pongo x `div` y tengo que poner obligatoriametne
+-- x `mod` y lo que dejaria de ser una funcion y pasaria a ser un resultado impidiendo composicion de funciones
+
+--componer x = max 4 . mod x 
+--Aplica y a mod x mod x y , aplica resultado a max 4 // funcion equivalente max 4 (mod x y)
 
 impar :: Int -> Bool
 impar = not.even
