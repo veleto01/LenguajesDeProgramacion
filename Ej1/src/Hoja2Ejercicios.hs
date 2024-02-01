@@ -1,6 +1,6 @@
 module Hoja2Ejercicios 
             (componer,
-            impar,
+            impar, 
             signum',
             signum'',
             bisiesto,
@@ -8,7 +8,6 @@ module Hoja2Ejercicios
 
 componer :: Int -> Int -> Int
 componer x y = max (x `div` y) (x `mod` y)
-
 
 impar :: Int -> Bool
 impar = not.even
