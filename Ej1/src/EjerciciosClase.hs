@@ -14,11 +14,6 @@ mayorDeTres :: Int -> Int -> Int -> Int
 mayorDeTres x y z
     | x >= y && x >= z = x
     | y >= x && y >= z = y
-    | z >= x && z >= y = z
-    | x >= y && y <= z && x >= z = x
-    | y >= z && z <= x && y >= x = y
-    | z >= x && x <= y && z >= y = z
-    | otherwise = -1
-    
+    | otherwise = z
     
     

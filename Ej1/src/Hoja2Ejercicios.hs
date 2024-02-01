@@ -1,13 +1,24 @@
 module Hoja2Ejercicios 
-            (componer,
+            (cocienteResto,
+            maximoTupla,
+            componer,
             impar, 
             signum',
             signum'',
             bisiesto,
             sumaCuatupla) where
 
+cocienteResto :: Int -> Int -> (Int, Int)
+cocienteResto x y = (x `div` y, x `mod` y)
+
+maximoTupla :: (Int,Int) -> Int
+maximoTupla (x,y) = max x y 
+
 componer :: Int -> Int -> Int
-componer x y = max (x `div` y) (x `mod` y)
+componer x = maximoTupla.cocienteResto x
+
+--componer x y = max (x `div` y) (x `mod` y) Esta bien
+
 --componer x = max (x `div` ) . mod x No se puede hacer por composicion de funciones ya que necesito ambos valores en dos funciones diferentes que se utilizan para el max por lo que si pongo x `div` y tengo que poner obligatoriametne
 -- x `mod` y lo que dejaria de ser una funcion y pasaria a ser un resultado impidiendo composicion de funciones
 
