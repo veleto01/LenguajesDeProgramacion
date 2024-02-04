@@ -27,7 +27,7 @@ library
   exposed-modules:
       EjerciciosClase
       Hoja1Ejercicios
-      Hoja2Ejercicios
+      Hoja2and3Ejercicios
       Lib
       PrimerModulo
   other-modules:
