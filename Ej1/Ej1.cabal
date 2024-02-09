@@ -26,6 +26,7 @@ source-repository head
 library
   exposed-modules:
       EjerciciosClase
+      EjerciciosClase2
       Hoja1Ejercicios
       Hoja2and3Ejercicios
       Hoja4Ejercicios
