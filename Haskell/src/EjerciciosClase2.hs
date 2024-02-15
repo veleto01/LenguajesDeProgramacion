@@ -11,7 +11,11 @@ module EjerciciosClase2
             contarCaracteres2',
             sum',
             sum'',
-            sumaListaFinal) where
+            sumaListaFinal,
+            length',
+            invertirLista,
+            mapVariasFunciones,
+            mapVariasFunciones') where
 
 import Data.Char
 
@@ -74,3 +78,16 @@ sum'' xs = sumaListaFinal xs 0
 sumaListaFinal :: [Int] -> Int -> Int
 sumaListaFinal [] r = r
 sumaListaFinal (x:xs) r = sumaListaFinal xs (r+x)
+
+length' :: [Int] -> Int
+length' = foldr (\_ y -> y+1) 0
+
+invertirLista :: [Int] -> [Int]
+invertirLista = foldl (\lista x -> [x] ++ lista) []
+
+mapVariasFunciones :: [Int -> Int] -> Int -> [Int]
+mapVariasFunciones [] _ = []
+mapVariasFunciones (f:fs) n = [f n] ++ (mapVariasFunciones fs n)
+
+mapVariasFunciones' :: [(Int -> Int)] -> Int -> [Int]
+mapVariasFunciones' fs n = foldr (\f lista -> (f n):lista) [] fs
