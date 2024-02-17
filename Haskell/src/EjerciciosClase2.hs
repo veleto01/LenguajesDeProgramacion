@@ -15,7 +15,13 @@ module EjerciciosClase2
             length',
             invertirLista,
             mapVariasFunciones,
-            mapVariasFunciones') where
+            mapVariasFunciones',
+            maxValueList,
+            dosVeces,
+            mezclar,
+            init',
+            last',
+            zipWith') where
 
 import Data.Char
 
@@ -91,3 +97,29 @@ mapVariasFunciones (f:fs) n = [f n] ++ (mapVariasFunciones fs n)
 
 mapVariasFunciones' :: [(Int -> Int)] -> Int -> [Int]
 mapVariasFunciones' fs n = foldr (\f lista -> (f n):lista) [] fs
+
+maxValueList :: [Int] -> Int
+maxValueList xs = foldl (\base n -> max base n) (head xs) (tail xs)  
+
+dosVeces :: (a -> a) -> a -> a
+dosVeces f x = f (f x)
+
+mezclar :: [(a,b)] -> [(c,d)] -> [((a,c),(b,d))]
+mezclar [] _  = []
+mezclar _ [] = []
+mezclar ts t2s = zip (zip (fst(unzip ts)) (fst(unzip t2s))) (zip (snd(unzip ts)) (snd(unzip t2s)))
+
+init' :: [a] -> [a]
+init' [] = error "empty list"
+init' [_] = []
+init' (x:xs) = x:init' xs
+
+last' :: [a] -> a
+last' [] = error "empty list"
+last' [x] = x
+last' (_:xs) = last' xs
+
+zipWith' :: (a -> b -> c) -> [a] -> [b] -> [c]
+zipWith' _ [] _ = []
+zipWith' _ _ [] = []
+zipWith' f (x:xs) (y:ys) = (f x y):zipWith' f xs ys
