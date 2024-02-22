@@ -27,11 +27,13 @@ library
   exposed-modules:
       EjerciciosClase
       EjerciciosClase2
+      EjerciciosClase3
       Hoja1Ejercicios
       Hoja2and3Ejercicios
       Hoja4Ejercicios
       Lib
       Listado1Tema4
+      Listado1Tema5
       Listado2Tema4
       Listado3Tema4
       PrimerModulo
