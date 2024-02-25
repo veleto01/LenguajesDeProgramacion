@@ -1,0 +1,841 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: https://localhost:8443
+  description: Generated server url
+paths:
+  /api/users/{username}/:
+    get:
+      tags:
+      - user-rest-controller
+      operationId: getEoloParksUser
+      parameters:
+      - name: page
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "403":
+          description: Forbidden
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageEoloPark'
+    put:
+      tags:
+      - user-rest-controller
+      operationId: setPremium
+      parameters:
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "403":
+          description: Forbidden
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserDTO'
+  /api/eoloparks/{id}:
+    get:
+      tags:
+      - eolopark-rest-controller
+      operationId: getEoloPark
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "403":
+          description: Forbidden
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/EoloPark'
+    put:
+      tags:
+      - eolopark-rest-controller
+      operationId: updateEoloPark
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EoloParkDTO'
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/EoloPark'
+    delete:
+      tags:
+      - eolopark-rest-controller
+      operationId: deleteEoloPark
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "403":
+          description: Forbidden
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/EoloPark'
+  /api/eoloparks/{id}/substations/{idSubstation}:
+    get:
+      tags:
+      - substation-rest-controller
+      operationId: getSubstation
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: idSubstation
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "403":
+          description: Forbidden
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Substation'
+    put:
+      tags:
+      - substation-rest-controller
+      operationId: updateSubstation
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: idSubstation
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Substation'
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Substation'
+    delete:
+      tags:
+      - substation-rest-controller
+      operationId: deleteSubstation
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: idSubstation
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "403":
+          description: Forbidden
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Substation'
+  /api/eoloparks/{id}/aerogenerators/{idAerogenerator}:
+    get:
+      tags:
+      - aerogenerator-rest-controller
+      operationId: getAerogenerator
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: idAerogenerator
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "403":
+          description: Forbidden
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Aerogenerator'
+    put:
+      tags:
+      - aerogenerator-rest-controller
+      operationId: updateAerogenerator
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: idAerogenerator
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Aerogenerator'
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Aerogenerator'
+    delete:
+      tags:
+      - aerogenerator-rest-controller
+      operationId: deleteAerogenerator
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: idAerogenerator
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "403":
+          description: Forbidden
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Aerogenerator'
+  /api/eoloparks/{id}/substations/:
+    post:
+      tags:
+      - substation-rest-controller
+      operationId: createSubstation
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Substation'
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Substation'
+  /api/eoloparks/{id}/aerogenerators/:
+    post:
+      tags:
+      - aerogenerator-rest-controller
+      operationId: addAerogenerator
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Aerogenerator'
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Aerogenerator'
+  /api/eoloparks/:
+    get:
+      tags:
+      - eolopark-rest-controller
+      operationId: getEoloParks
+      parameters:
+      - name: city
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "403":
+          description: Forbidden
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageEoloPark'
+    post:
+      tags:
+      - eolopark-rest-controller
+      operationId: createEoloPark
+      parameters:
+      - name: generate
+        in: query
+        required: false
+        schema:
+          type: boolean
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EoloParkDTO'
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/EoloPark'
+  /api/auth/signup:
+    post:
+      tags:
+      - login-rest-controller
+      operationId: createUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignUpUserDTO'
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SignUpUserDTO'
+  /api/auth/refresh:
+    post:
+      tags:
+      - login-rest-controller
+      operationId: refreshToken
+      parameters:
+      - name: refreshToken
+        in: cookie
+        required: false
+        schema:
+          type: string
+      responses:
+        "403":
+          description: Forbidden
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+  /api/auth/logout:
+    post:
+      tags:
+      - login-rest-controller
+      operationId: logOut
+      responses:
+        "403":
+          description: Forbidden
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+  /api/auth/login:
+    post:
+      tags:
+      - login-rest-controller
+      operationId: login
+      parameters:
+      - name: accessToken
+        in: cookie
+        required: false
+        schema:
+          type: string
+      - name: refreshToken
+        in: cookie
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        "403":
+          description: Forbidden
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+  /api/users/:
+    get:
+      tags:
+      - user-rest-controller
+      operationId: getUsers
+      parameters:
+      - name: page
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "403":
+          description: Forbidden
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageUserDTO'
+components:
+  schemas:
+    UserDTO:
+      type: object
+      properties:
+        username:
+          type: string
+        premium:
+          type: boolean
+    EoloParkDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        city:
+          type: string
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+        area:
+          type: number
+          format: double
+        terrain:
+          type: string
+    Aerogenerator:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+        bladeLength:
+          type: number
+          format: double
+        height:
+          type: number
+          format: double
+        power:
+          type: number
+          format: double
+    EoloPark:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        city:
+          type: string
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+        area:
+          type: number
+          format: double
+        terrain:
+          type: string
+        substation:
+          $ref: '#/components/schemas/Substation'
+        aerogenerators:
+          type: array
+          items:
+            $ref: '#/components/schemas/Aerogenerator'
+    Substation:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        model:
+          type: string
+        power:
+          type: number
+          format: double
+        voltage:
+          type: number
+          format: double
+    SignUpUserDTO:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+    AuthResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - SUCCESS
+          - FAILURE
+        message:
+          type: string
+        error:
+          type: string
+    LoginRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+    Pageable:
+      type: object
+      properties:
+        page:
+          minimum: 0
+          type: integer
+          format: int32
+        size:
+          minimum: 1
+          type: integer
+          format: int32
+        sort:
+          type: array
+          items:
+            type: string
+    PageEoloPark:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int64
+        size:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/EoloPark'
+        number:
+          type: integer
+          format: int32
+        sort:
+          $ref: '#/components/schemas/SortObject'
+        first:
+          type: boolean
+        last:
+          type: boolean
+        numberOfElements:
+          type: integer
+          format: int32
+        pageable:
+          $ref: '#/components/schemas/PageableObject'
+        empty:
+          type: boolean
+    PageableObject:
+      type: object
+      properties:
+        offset:
+          type: integer
+          format: int64
+        sort:
+          $ref: '#/components/schemas/SortObject'
+        pageSize:
+          type: integer
+          format: int32
+        pageNumber:
+          type: integer
+          format: int32
+        unpaged:
+          type: boolean
+        paged:
+          type: boolean
+    SortObject:
+      type: object
+      properties:
+        empty:
+          type: boolean
+        sorted:
+          type: boolean
+        unsorted:
+          type: boolean
+    PageUserDTO:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int64
+        size:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserDTO'
+        number:
+          type: integer
+          format: int32
+        sort:
+          $ref: '#/components/schemas/SortObject'
+        first:
+          type: boolean
+        last:
+          type: boolean
+        numberOfElements:
+          type: integer
+          format: int32
+        pageable:
+          $ref: '#/components/schemas/PageableObject'
+        empty:
+          type: boolean
