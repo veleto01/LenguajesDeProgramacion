@@ -38,6 +38,3 @@ concatMenorTres x y
 getMayusculas :: String -> String
 getMayusculas xs = [x| x <- xs, isUpper x]
 
-isLETres :: String -> Bool
-isLETres (_:_:_:_:_) = False
-isLETres _ = True

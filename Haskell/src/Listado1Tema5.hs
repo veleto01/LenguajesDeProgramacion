@@ -55,12 +55,12 @@ aprobado' (Alumno _ _ nota) = nota >= 5.0
 
 calificacion :: Float -> String
 calificacion x 
-    | x>= v0 && x < v1 = "Suspenso"
-    | v1 <= x && x < v2 = "Aprobado"
-    | v2 <= x && x < v3 = "Notable"
-    | v3 <= x && x < v4 = "Sobresaliente"
-    | x == v4 = "Matricula Honor"
-    | otherwise = "Nota no valida"
+    | x  >= v0 && x < v1 = "Suspenso"
+    | v1 <= x  && x < v2 = "Aprobado"
+    | v2 <= x  && x < v3 = "Notable"
+    | v3 <= x  && x < v4 = "Sobresaliente"
+    | x == v4            = "Matricula Honor"
+    | otherwise          = "Nota no valida"
         where
             v0 = 0
             v1 = 5
