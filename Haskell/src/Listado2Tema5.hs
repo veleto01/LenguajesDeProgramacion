@@ -108,7 +108,7 @@ elemArbol (Rama izq r der) x
     | otherwise = elemArbol izq x || elemArbol der x
 
 --Asumiendo que es ABB
-elemArbol' :: Ord a => Arbol a -> a -> Bool
+elemArbol' :: (Ord a) => Arbol a -> a -> Bool
 elemArbol' AV _ = False
 elemArbol' (Rama AV r AV) x = r == x
 elemArbol' (Rama izq r der) x
